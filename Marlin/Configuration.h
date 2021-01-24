@@ -982,7 +982,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -52, -17, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -52, -17, -4.9 }
 
 //HERE IT IS DUMBASS
 
