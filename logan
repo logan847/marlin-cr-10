@@ -1,2 +1,10 @@
 test
 logan
+
+G28             //mesh validation pattern
+    B65         //set bed temp to 65C
+    H180        //set hotend temp to 180
+    S0.4        //set nozzle diameter to 0.4mm
+
+
+
