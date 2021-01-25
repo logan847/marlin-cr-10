@@ -1,6 +1,49 @@
 test
 logan
 
+
+STARTING G CODE
+
+G21 ;metric values
+G90 ;absolute Positioning
+G28 ; home all axes
+G29 L65 ; 5x5 bed level mesh, left bound shifted to 65mm
+G1 Z5 F3000 ; lift
+G1 X10 Y20 F1500 ; avoid binder clips
+G1 Z0.2 F3000 ; get ready to prime
+G92 E0 ; reset extrusion distance
+G1 X120 E10 F600 ; prime nozzle
+G1 X150 F5000 ; quick wipe
+G1 X135 F5000 ; quick wipe
+
+
+ENDING G CODE
+
+G91 ;Relative positioning
+
+M117 Ending sequence ;Display message
+
+G1 E-2 F2700 ;Retract a bit
+G1 E-2 Z0.2 F2400 ;Retract and raise Z
+G0 X5 Y5 F3000 ;Wipe out
+G0 Z10 ;Raise Z more
+G90 ;Absolute positionning
+
+M117 Presenting Complete Print
+G1 X10 Y280 ;Present print
+
+M117 Cooling...
+M104 S0 ;Turn-off hotend
+M140 S0 ;Turn-off bed
+M84 X Y E ;Disable all steppers but Z
+
+G4 S30 ;wait 30 seconds
+M106 S0 ;Turn-off fan
+M117 Complete
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 G28             //mesh validation pattern
     B65         //set bed temp to 65C
     H180        //set hotend temp to 180
