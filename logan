@@ -8,3 +8,18 @@ G28             //mesh validation pattern
 
 
 
+G29
+    I1          //first X mesh point to index
+    J1          //first Y mesh point to index
+    S3          //manually modify a single point 
+    X65 Y30     //shift first point qdts
+
+
+G29
+    L65         //set left limit of probing grid to 65mm
+
+
+
+Send: M851
+Recv: Probe Offset X-20.00 Y-15.00 Z-3.18
+Recv: ok P15 B3

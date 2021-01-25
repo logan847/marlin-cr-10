@@ -982,9 +982,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -52, -17, -4.9 }
-
-//HERE IT IS DUMBASS
+#define NOZZLE_TO_PROBE_OFFSET { -52, -17, -7.7 }
 
 
 // Most probes should stay away from the edges of the bed, but
@@ -1009,8 +1007,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
-//#define EXTRA_PROBING    1
+#define MULTIPLE_PROBING 2
+#define EXTRA_PROBING    1
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
