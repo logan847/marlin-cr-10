@@ -5,11 +5,12 @@ logan
 STARTING G CODE
 
 G21 ;metric values
+M851 X-52 Y-17 X-4.7 ; set probe offset
 G90 ;absolute Positioning
 G28 ; home all axes
 G29 L65 ; 5x5 bed level mesh, left bound shifted to 65mm
-G1 Z5 F3000 ; lift
-G1 X10 Y20 F1500 ; avoid binder clips
+G0 Z5 F3000 ; lift
+G0 X10 Y20 F1500 ; avoid binder clips
 G1 Z0.2 F3000 ; get ready to prime
 G92 E0 ; reset extrusion distance
 G1 X120 E10 F600 ; prime nozzle
