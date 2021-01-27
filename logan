@@ -12,12 +12,12 @@ G90 ;absolute Positioning
 G28 ; home all axes
 G29 L65 ; 5x5 bed level mesh, left bound shifted to 65mm
 G0 Z25 F1500 ; lift
-G0 X10 Y20 F5000 ; avoid binder clips
-G1 Z0.2 F1500 ; get ready to prime
+G0 X10 Y10 F5000 ; avoid binder clips
+G1 Z0.2 F500 ; get ready to prime
 G92 E0 ; reset extrusion distance
-G1 X120 E10 F600 ; prime nozzle
-G1 X150 F5000 ; quick wipe
-G1 X135 F5000 ; quick wipe
+G1 Y120 E10 F600 ; prime nozzle
+G1 Y150 F5000 ; quick wipe
+G1 Y135 F5000 ; quick wipe
 
 
 ENDING G CODE
