@@ -5,7 +5,7 @@ logan
 STARTING G CODE
 
 G21 ;metric values
-M851 X-52 Y-17 Z-4.6 ; set probe offset
+M851 X-52 Y-17 Z-5.25 ; set probe offset
 G90 ;absolute Positioning
 G28 ; home all axes
 G29 L65 ; 5x5 bed level mesh, left bound shifted to 65mm
