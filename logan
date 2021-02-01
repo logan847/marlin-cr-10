@@ -1,6 +1,52 @@
 test
 logan
 
+
+STARTING G CODE
+
+G21 ;metric values
+M851 X-52 Y-17 Z-5.25 ; set probe offset
+G91 ; relative positioning
+G0 Z10 F1500 ; raise z 10 mm
+G90 ;absolute Positioning
+G28 ; home all axes
+G29 L65 ; 5x5 bed level mesh, left bound shifted to 65mm
+G0 Z25 F1500 ; lift
+G0 X10 Y10 F5000 ; avoid binder clips
+G1 Z0.2 F500 ; get ready to prime
+G92 E0 ; reset extrusion distance
+G1 Y120 E10 F600 ; prime nozzle
+G1 Y150 F5000 ; quick wipe
+G1 Y135 F5000 ; quick wipe
+
+
+ENDING G CODE
+
+G91 ;Relative positioning
+
+M117 Ending sequence ;Display message
+
+G1 E-2 F2700 ;Retract a bit
+G1 E-2 Z0.2 F2400 ;Retract and raise Z
+G0 X5 Y5 F3000 ;Wipe out
+G0 Z10 ;Raise Z more
+G90 ;Absolute positionning
+
+M117 Presenting Complete Print
+G1 X10 Y280 ;Present print
+
+M117 Cooling...
+M104 S0 ;Turn-off hotend
+M140 S0 ;Turn-off bed
+M84 X Y E ;Disable all steppers but Z
+
+G4 S30 ;wait 30 seconds
+M106 S0 ;Turn-off fan
+M117 Complete
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 G28             //mesh validation pattern
     B65         //set bed temp to 65C
     H180        //set hotend temp to 180
@@ -8,3 +54,20 @@ G28             //mesh validation pattern
 
 
 
+G29
+    I1          //first X mesh point to index
+    J1          //first Y mesh point to index
+    S3          //manually modify a single point 
+    X65 Y30     //shift first point qdts
+
+
+G29
+    L65         //set left limit of probing grid to 65mm
+
+
+
+Send: M851
+Recv: Probe Offset X-20.00 Y-15.00 Z-3.18
+Recv: ok P15 B3
+
+M851 X-52 Y-17 Z-4.7 //set probe offset
